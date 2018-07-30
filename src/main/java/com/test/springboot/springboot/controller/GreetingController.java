@@ -12,10 +12,7 @@ package com.test.springboot.springboot.controller;
 
 import com.test.springboot.springboot.pojo.Greeting;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -31,10 +28,53 @@ import java.util.concurrent.atomic.AtomicLong;
 public class GreetingController {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
-    
+
+    /**
+     * @description get mapping
+     * @param name
+     * @return
+     */
     @RequestMapping(value = "/greeting",method = RequestMethod.GET)
     public @ResponseBody
     Greeting greeting(@RequestParam(value="name",defaultValue = "World")String name){
         return new Greeting(counter.incrementAndGet(),String.format(template,name));
+    }
+
+    /**
+     * 
+     * @param name
+     * @return
+     */
+    @PostMapping(value="/greeting2")
+    public @ResponseBody
+    String greeting2(@RequestParam(value="name",defaultValue = "post")String name){
+        return String.format(template,name);
+    }
+
+    /**
+     * 
+     * @param name
+     * @return
+     */
+    @GetMapping
+    public @ResponseBody
+    String greeting3(@RequestParam(value="name",defaultValue = "get")String name){
+        return String.format(template,name);
+    }
+
+    /**
+     * 
+     * @param name
+     * @return
+     */
+    @PutMapping
+    public @ResponseBody
+    String greeting4(@RequestParam(value = "name",defaultValue = "put")String name){
+        return String.format(template,name);
+    }
+    @DeleteMapping
+    public @ResponseBody
+    String greeting5(@RequestParam(value = "name",defaultValue = "delete")String name){
+        return String.format(template,name);
     }
 }
