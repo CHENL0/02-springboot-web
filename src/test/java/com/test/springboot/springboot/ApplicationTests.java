@@ -79,12 +79,12 @@ public class ApplicationTests {
          */
         this.mvc.perform(get("/producttest").accept(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.length()").value(3))
-//                .andExpect(content().json("{\"code\":1,\"msg\":\"成功\",\"productList\"" +
-//                        ":[{\"name\":\"热榜\",\"type\":1,\"foods\":{\"foodid\":1,\"foodname\":\"面包\"" +
-//                        ",\"fooddescription\":\"好吃\",\"price\":1.2,\"inco\":\"http://xxx.com\"}}," +
-//                        "{\"name\":\"好吃的\",\"type\":2,\"foods\":{\"foodid\":2,\"foodname\":\"面包\"," +
-//                        "\"fooddescription\":\"好吃\",\"price\":1.2,\"inco\":\"http://xxx.com\"}}]}"))
+                .andExpect(jsonPath("$.length()").value(3))
+                .andExpect(content().json("{\"code\":1,\"msg\":\"成功\",\"productList\"" +
+                        ":[{\"name\":\"热榜\",\"type\":1,\"foods\":{\"foodid\":1,\"foodname\":\"面包\"" +
+                        ",\"fooddescription\":\"好吃\",\"price\":1.2,\"inco\":\"http://xxx.com\"}}," +
+                        "{\"name\":\"好吃的\",\"type\":2,\"foods\":{\"foodid\":2,\"foodname\":\"面包\"," +
+                        "\"fooddescription\":\"好吃\",\"price\":1.2,\"inco\":\"http://xxx.com\"}}]}"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
     }
     
