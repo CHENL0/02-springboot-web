@@ -13,12 +13,14 @@ package com.test.springboot.springboot.controller;
 import com.test.springboot.springboot.pojo.Foods;
 import com.test.springboot.springboot.pojo.Order;
 import com.test.springboot.springboot.pojo.Product;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * @description〈The Controller of Product〉
@@ -26,6 +28,7 @@ import java.util.List;
  * @create 2018/7/31
  * @since 1.0.0
  */
+
 @Controller
 public class ProductController {
     @GetMapping(value="/producttest", produces = "application/json; charset=utf-8")
