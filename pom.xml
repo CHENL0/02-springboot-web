@@ -7,7 +7,6 @@
     <artifactId>02-springboot-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-
     <name>02-springboot-web</name>
     <description>project for Spring Boot</description>
 
@@ -86,11 +85,27 @@
         </dependency>
     </dependencies>
 
+    <scm>
+        <url>https://github.com/CHENL0/02-springboot-web</url>
+        <connection>scm:git:https://github.com/CHENL0/02-springboot-web.git</connection>
+        <developerConnection>scm:git:https://github.com/CHENL0/02-springboot-web.git</developerConnection>
+    </scm>
     <build>
         <plugins>
+            <!--打包test-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>1.9.5</version>
+                <configuration>
+                    <connectionType>developerConnection</connectionType>
+                    <username>CHENL0</username>
+                    <password>79513Aa123</password>
+                </configuration>
             </plugin>
         </plugins>
     </build>

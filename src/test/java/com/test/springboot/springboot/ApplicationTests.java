@@ -17,7 +17,7 @@ import sun.nio.cs.ext.MacDingbat;
 import javax.swing.text.Document;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -45,35 +45,47 @@ public class ApplicationTests {
         this.mvc.perform(get("/greeting")
                 .param("name","test").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-//                .andExpect(jsonPath("$:length()").value(2))
+                .andExpect(jsonPath("$.length()").value(2))
                 .andDo(document("list-users"));
         /**
          * @Description //TODO test greeting2 method what requestmethod of post
          */
-        this.mvc.perform(get("/greeting2")
-                .param("name","post").accept(MediaType.TEXT_PLAIN))
+        this.mvc.perform(post("/greeting2")
+                .param("name","post").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(document("post-hello"));
         /**
          * @Description //TODO test greeting3 method what requestmethod of get
          */
         this.mvc.perform(get("/greeting3")
-                .param("name","get").accept(MediaType.TEXT_PLAIN))
+                .param("name","get").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(document("get-hello"));
         /**
          * @Description //TODO test greeting4 method what requestmethod of put
          */
-        this.mvc.perform(get("/greeting4").param("name","put"))
+        this.mvc.perform(put("/greeting4").param("name","put"))
                 .andExpect(status().isOk())
                 .andDo(document("put-hello"));
         /**
          * @Description //TODO test greeting5 method what requestmethod of delete
          */
-        this.mvc.perform(get("/greeting5")
+        this.mvc.perform(delete("/greeting5")
                 .param("name","delete").accept(MediaType.TEXT_PLAIN))
                 .andExpect(status().isOk())
                 .andDo(document("delete-hello"));
+        /**
+         * @Description //TODO test test1 method what requestmethod of get
+         */
+        this.mvc.perform(get("/producttest").accept(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.length()").value(3))
+//                .andExpect(content().json("{\"code\":1,\"msg\":\"成功\",\"productList\"" +
+//                        ":[{\"name\":\"热榜\",\"type\":1,\"foods\":{\"foodid\":1,\"foodname\":\"面包\"" +
+//                        ",\"fooddescription\":\"好吃\",\"price\":1.2,\"inco\":\"http://xxx.com\"}}," +
+//                        "{\"name\":\"好吃的\",\"type\":2,\"foods\":{\"foodid\":2,\"foodname\":\"面包\"," +
+//                        "\"fooddescription\":\"好吃\",\"price\":1.2,\"inco\":\"http://xxx.com\"}}]}"))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8));
     }
     
 }
