@@ -54,12 +54,12 @@ public class Order implements Serializable {
         this.msg = msg;
     }
 
-   @Override
+/*   @Override
     public String toString() {
         return "Order{" +
                 "code=" + code +
                 ", msg='" + msg + '\'' +
                 ", productList=" + productList +
                '}';
-    }
+    }*/
 }

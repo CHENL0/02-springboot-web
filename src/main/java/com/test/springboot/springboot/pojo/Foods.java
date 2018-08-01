@@ -73,7 +73,7 @@ public class Foods implements Serializable {
         this.inco = inco;
     }
 
-    @Override
+/*    @Override
     public String toString() {
         return "Foods{" +
                 "foodid=" + foodid +
@@ -82,5 +82,5 @@ public class Foods implements Serializable {
                 ", price=" + price +
                 ", inco='" + inco + '\'' +
                 '}';
-    }
+    }*/
 }

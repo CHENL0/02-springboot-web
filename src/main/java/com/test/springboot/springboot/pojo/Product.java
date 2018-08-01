@@ -54,12 +54,12 @@ public class Product implements Serializable {
         this.foods = foods;
     }
 
-    @Override
+  /*  @Override
     public String toString() {
         return "Product{" +
                 "name='" + name + '\'' +
                 ", type=" + type +
                 ", foodsList=" + foods +
                 '}';
-    }
+    }*/
 }
